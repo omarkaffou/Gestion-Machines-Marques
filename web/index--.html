@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration and login Form</title>
+    <!-- For google icons  -->
+    <script src="https://kit.fontawesome.com/667417c7ec.js" ></script>
+    <style>
+        body {
+            background: white;//rgb(99, 140, 187);
+            //background: radial-gradient(circle, rgb(10, 51, 98) 54%, rgba(10, 3, 60, 0.97) 100%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+            font-family: Arial, Helvetica, sans-serif
+        }
+        
+        .container {
+            background-color: white;
+            width: 380px;
+            margin: auto;
+            height: 500px;
+            position: relative;
+            top: 12.5vh;
+            border-radius: 25px;
+            box-shadow: 0 0 10px black;
+        }
+        
+        #account {
+            position: relative;
+            top: -60px;
+            margin: auto;
+            left: calc(50% - 74px);
+            border-radius: 18px;
+            border-bottom-right-radius: 100px;
+            border-bottom-left-radius: 100px;
+            background: white;//rgb(99, 140, 187);
+            //background: radial-gradient(circle, rgb(10, 51, 98) 54%, rgba(10, 3, 60, 0.97) 100%);
+            background-repeat: no-repeat;
+            color: #009688;//#e1cfcf;
+            font-size: 90px;
+            padding: 19px;
+            box-shadow: 0 0 5px black;
+        }
+        
+        .tabs {
+            display: flex;
+            position: relative;
+            top: -25px;
+            justify-content: center;
+            color: #009688;//rgb(73, 71, 71);
+            height: 25px;
+        }
+        
+        .reg-tab,
+        .login-tab {
+            width: 50%;
+            text-align: center;
+            padding-bottom: 10px;
+            margin: auto 25px;
+            cursor: pointer;
+        }
+        
+        .reg-tab:hover,
+        .login-tab:hover {
+            color: #009688;//rgb(10, 51, 98);
+            border-bottom: 4px solid #00f2c3;//#009688;//rgb(10, 51, 98);
+        }
+        
+        .active {
+            color: #009688;//rgb(10, 51, 98);
+            border-bottom: 4px solid #009688;//rgb(10, 51, 98);
+        }
+        
+        #login-form {
+            display: block;
+            padding-top: 25px;
+        }
+        
+        #registration-form {
+            display: none;
+        }
+        
+        .msg {
+            visibility: hidden;
+            margin: 1px;
+            text-align: center;
+            color: red;
+        }
+        
+        form {
+            width: 90%;
+            margin: 15px auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        input {
+            height: 27px;
+            margin: 5px;
+            border-radius: 15px;
+            border: none;
+            outline: none;
+            padding: 5px;
+            font-size: 17px;
+            text-align: center;
+            background-color: rgb(209, 209, 209);
+            color:rgb(73, 73, 73);
+        }
+        
+        .tnc {
+            display: flex;
+            align-items: center;
+            margin: auto;
+            color:rgb(54, 52, 52);
+        }
+        
+        p {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .options {
+            display: flex;
+            align-items: center;
+            font-style: italic;
+            margin-top: 25px;
+        }
+        
+        .remember {
+            display: flex;
+            align-items: center;
+            width: 50%;
+            text-align: center;
+        }
+        
+        .options a {
+            width: 50%;
+            text-align: center;
+            text-decoration: none;
+            color: blue;
+        }
+        p a {
+            width: 50%;
+            text-align: center;
+            text-decoration: none;
+            color: blue;
+        }
+        
+        button {
+            margin: 20px auto;
+            font-size: 20px;
+            color: white;
+            background-color: #009688;//rgb(10, 51, 98);
+            border: none;
+            padding: 10px 45px;
+            text-align: center;
+            border-radius: 18px;
+            cursor: pointer;
+            box-shadow: 0 0 2px rgb(117, 113, 113);
+        }
+        
+        button:hover {
+            background-color: #00f2c3;//rgba(0, 81, 255, 0.781);
+        }
+
+        /* making design responsive */
+        @media screen and (max-width:600px) {
+            .container{
+                width: 90%;
+            }
+        }
+        @media screen and (max-width:350px) {
+            .container{
+                width: 320px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <i id='account' class="fas fa-users"></i>
+        <div class="tabs">
+            <h2 class='reg-tab' id="reg-tab">Register</h2>
+            <h2 class='login-tab active' id="login-tab">Login</h2>
+        </div>
+
+        <div id="login-form">
+            <form action="UserController" method="POST" >
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <div class="options">
+                    <div class="remember">
+                        <input type="checkbox" name="rem" id="customCheck">
+                        <p>Remember Me</p>
+                    </div>
+                    <a href="#">Forget Password ?</a>
+                </div>
+                <button type="submit" id="submitLogin">Login</button>
+            </form>
+        </div>
+
+        <div id="registration-form">
+            <form action="UserController" method="post" >
+                <p class="msg">Password didnot match !!!</p>
+                <input type="text" name="username" id="usernameN" placeholder="Username">
+                <input type="email" name="email" id="emailN" placeholder="Email">
+                <input type="password" name="pass" id="passwordN" placeholder="Password">
+                <input type="password" name="tele" id="teleN" placeholder="Tele">
+                <div class="tnc">
+                    <input type="checkbox" name="accept" id="accept">
+                    <p>I accept the <a href="#">Terms & Conditions</a></p>
+                </div>
+                <button type="submit" id="add">Register</button>
+            </form>
+        </div>
+
+    </div>
+    <script src="scripte/user.js" type="text/javascript"></script>
+    <!--<script>
+        const reg_form = document.querySelector("#registration-form")
+        const login_form = document.querySelector("#login-form")
+
+        const reg_tab = document.querySelector("#reg-tab")
+        const login_tab = document.querySelector("#login-tab")
+
+        const pass = document.querySelector('#pass')
+        const confirm_pass = document.querySelector('#confirm-pass')
+        const msg = document.querySelector('p')
+        const btn = document.querySelector('#create')
+
+        reg_tab.addEventListener('click', (e) => {
+            login_form.style.display = 'none';
+            reg_form.style.display = 'block';
+            reg_tab.classList.add('active')
+            login_tab.classList.remove('active')
+        })
+        login_tab.addEventListener('click', (e) => {
+            login_form.style.display = 'block';
+            reg_form.style.display = 'none';
+            reg_tab.classList.remove('active')
+            login_tab.classList.add('active')
+        })
+
+
+
+        btn.addEventListener('click', (e) => {
+            if (pass.value != confirm_pass.value) {
+                e.preventDefault();
+                msg.style.visibility = "visible"
+            } else {
+                alert('user registered sucessfully')
+            }
+
+        })
+    </script>-->
+</body>
+
+</html>

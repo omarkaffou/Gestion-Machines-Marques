@@ -1,0 +1,17 @@
+SMAP
+machinePage_jsp.java
+JSP
+*S JSP
+*F
++ 0 machinePage.jsp
+machinePage.jsp
++ 1 header.jsp
+template/header.jsp
+*L
+6:54,2
+7,54:56
+1#1,100:110
+60#0,43:210
+103:253,3
+104,185:256
+*E
